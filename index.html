@@ -24,8 +24,8 @@
     <header class="flex px-6 py-6 flex-col" role="banner">
         <nav aria-label="Navegação principal">
             <div class="flex justify-start items-center">
-                <img src="src/public/icone-servico-2.png" alt="Logo Dany Massoterapia" class="w-[25px] mr-2 rounded-full"
-                    loading="lazy">
+                <img src="src/public/icone-servico-2.png" alt="Logo Dany Massoterapia"
+                    class="w-[25px] mr-2 rounded-full" loading="lazy">
                 <a class="text-lg font-semibold" href="index.html" aria-current="page">Dany Terapia Corporal</a>
             </div>
         </nav>
@@ -36,9 +36,9 @@
         role="main">
 
         <article
-            class="w-full cursor-pointer p-1 px-4 mb-6 border border-green-400 border-2 shadow-md rounded-xl fadeInUp-animation"
+            class="w-full cursor-pointer py-2 px-4 mb-6 border border-green-400 border-2 shadow-md rounded-xl fadeInUp-animation"
             aria-label="Promoção especial">
-            <h2 class="text-green-600">15% OFF na primeira sessão! Clique e Resgate</h2>
+            <h2 class="text-green-600">15% OFF na primeira sessão! Cupom <b>DANY15</b></h2>
         </article>
 
         <section aria-labelledby="main-heading" class="my-6">
@@ -71,9 +71,10 @@
 
         <section aria-labelledby="sobre-dany" class="text-center my-12">
             <div class="relative p-4 my-4 flex justify-center items-center">
-                <img src="src/public/icone-servico-2.png" class="absolute bottom-0" alt="Ícone de massagem" loading="lazy">
-                <img src="src/public/profile.jpg" class="w-[100px] rounded-xl shadow-md" alt="Dany - Terapeuta profissional"
+                <img src="src/public/icone-servico-2.png" class="absolute bottom-0" alt="Ícone de massagem"
                     loading="lazy">
+                <img src="src/public/profile.jpg" class="w-[100px] rounded-xl shadow-md"
+                    alt="Dany - Terapeuta profissional" loading="lazy">
             </div>
             <div itemscope itemtype="https://schema.org/Person">
                 <h3 id="sobre-dany" class="text-2xl font-bold" itemprop="name">Dany.</h3>
@@ -94,10 +95,39 @@
                         <blockquote>
                             <p class="text-left" itemprop="reviewBody">
                                 “Fácil de chegar, assim que agendei já estava disponível pra passar lá, achei super
-                                prático e o atendimento foi muito bom”
+                                prático e o atendimento foi incrível.”
                             </p>
                         </blockquote>
                     </article>
+                    <article class="p-4 w-full border-2 rounded-md shadow-lg" itemscope
+                        itemtype="https://schema.org/Review" role="article">
+                        <div class="flex justify-start items-center text-left mb-4">
+                            <div class="text-left">
+                                <h4 class="text-xl font-bold" itemprop="author">Fernando Rodrigues</h4>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <p class="text-left" itemprop="reviewBody">
+                                “Estou hospedado no centro há uns dias, e acabei encontrando esse ótimo serviço no meu
+                                dia de folga. Me sinto muito melhor para a próxima semana.”
+                            </p>
+                        </blockquote>
+                    </article>
+                    <article class="p-4 w-full border-2 rounded-md shadow-lg" itemscope
+                        itemtype="https://schema.org/Review" role="article">
+                        <div class="flex justify-start items-center text-left mb-4">
+                            <div class="text-left">
+                                <h4 class="text-xl font-bold" itemprop="author">Rogério Heleno</h4>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <p class="text-left" itemprop="reviewBody">
+                                “É uma ótima pedida para depois da academia. ou para quem procura tirar o estresse do
+                                trabalho, muito bom.”
+                            </p>
+                        </blockquote>
+                    </article>
+                    <p class="text-slate-400">*Alguns Depoimentos de Janeiro de 2025</p>
                     <!-- Repetir para outros depoimentos -->
                 </div>
             </div>
@@ -113,15 +143,22 @@
                     Paraíso do metrô.
                 </p>
                 <address
-                    class="text-blue-600 hover:text-blue-800 text-lg font-semibold border-2 border-blue-500 px-4 py-1 rounded-md shadow-md"
+                    class="w-full flex justify-center items-center text-blue-600 hover:text-blue-800 text-md font-semibold border-2 border-blue-500 px-4 py-2 rounded-md shadow-md"
                     itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                    📍 <span itemprop="streetAddress">Rua ABC, 123</span> -
+                    <span class="flex justify-center items-center">
+                        <img src="src/public/google-maps.svg" class="w-[20px]" alt="">
+                        <span itemprop="streetAddress">Rua ABC, 123</span>
+                    </span> -
                     <span itemprop="addressLocality">Paraíso</span>,
                     <span itemprop="addressRegion">SP</span>
                 </address>
             </div>
             <div class="mt-6 flex justify-start items-center overflow-x-auto" role="group" aria-label="Fotos do espaço">
                 <!-- Adicionar imagesrcset para responsive images -->
+                <img src="src/public/espaco-de-massagem.png" alt="Interior do espaço de massagem"
+                    class="shadow-sm h-[450px] w-[90%]" loading="lazy">
+                <img src="src/public/espaco-de-massagem.png" alt="Interior do espaço de massagem"
+                    class="shadow-sm h-[450px] w-[90%]" loading="lazy">
                 <img src="src/public/espaco-de-massagem.png" alt="Interior do espaço de massagem"
                     class="shadow-sm h-[450px] w-[90%]" loading="lazy">
                 <!-- Repetir para outras imagens -->
@@ -156,6 +193,56 @@
                             class="inline-block w-full bg-[#16a34a] text-white text-lg font-semibold rounded-md px-6 py-3 shadow transition-colors"
                             aria-label="Agendar Massagem Terapêutica">
                             Agendar Minha Sessão <span class="inline-block">✅</span>
+                        </a>
+                    </span>
+                </article>
+                <article class="border-2 rounded-md shadow-md text-left relative p-8 my-4" itemscope
+                    itemtype="https://schema.org/Service">
+                    <img src="src/public/icone-servico-2.png" class="absolute right-8 top-4"
+                        alt="Ícone massagem terapêutica" loading="lazy">
+                    <h3 class="text-2xl font-bold" itemprop="name">Drenagem Linfática</h3>
+                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                        <meta itemprop="priceCurrency" content="BRL">
+                        <p class="py-2 text-xl" itemprop="price">R$ 150,00 - <time itemprop="eligibleDuration"
+                                datetime="PT30M">40min</time></p>
+                    </div>
+                    <div class="my-4">
+                        <p class="text-lg" itemprop="description">
+                            A massagem relaxante é uma excelente opção para quem deseja reduzir o estresse e a
+                            ansiedade, promovendo um profundo estado de relaxamento físico e mental.
+                        </p>
+                    </div>
+                    <span class="text-center">
+                        <a href="agendamento.html" role="button"
+                            class="inline-block w-full bg-[#16a34a] text-white text-lg font-semibold rounded-md px-6 py-3 shadow transition-colors"
+                            aria-label="Agendar Massagem Terapêutica">
+                            Agendar Minha Sessão <span class="inline-block">✅</span>
+                        </a>
+                    </span>
+                </article>
+                <article class="border-2 rounded-md shadow-md text-left relative p-8 my-4" itemscope
+                    itemtype="https://schema.org/Service">
+                    <img src="src/public/icone-servico-3.png" class="absolute right-8 top-4"
+                        alt="Ícone massagem terapêutica" loading="lazy">
+                    <h3 class="text-2xl font-bold" itemprop="name">Pacotes</h3>
+                    <div class="my-4">
+                        <p class="text-lg" itemprop="description">
+                            Pacotes são atendimentos feitos no mes, você escolhe entre os serviços e a cada semana
+                            garante seu atendimento com maior tranquilidade.
+                        </p>
+                    </div>
+                    <div class="my-4">
+                        <p class="text-lg" itemprop="description">
+                            Escolha entre serviços e marque seus atendimentos no mês, feche pacotes conosco através do
+                            whatsapp
+                        </p>
+                    </div>
+                    <span class="text-center">
+                        <a href="agendamento.html" role="button"
+                            class="flex justify-center items-center inline-block w-full border border-[#16a34a] text-lg font-semibold rounded-md px-6 py-3 shadow transition-colors"
+                            aria-label="Agendar Massagem Terapêutica">
+                            <p>Saiba Mais</p>
+                            <img src="src/public/whatsapp.webp" class="w-[25px] ml-1" alt="">
                         </a>
                     </span>
                 </article>
