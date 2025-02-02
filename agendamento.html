@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" itemscope itemtype="https://schema.org/LocalBusiness">
 
 <head>
     <meta charset="UTF-8">
@@ -19,8 +19,8 @@
     <link rel="shortcut icon" href="src/public/logo.png" type="image/x-icon">
 </head>
 
+<body class="text-gray-900 font-sans font-[SF Pro Display]">
 
-<body class="bg-white text-gray-900 font-sans font-[SF Pro Display]">
     <header class="flex px-6 py-6 flex-col" role="banner">
         <nav aria-label="Navegação principal">
             <div class="flex justify-start items-center">
@@ -34,71 +34,101 @@
 
     <main
         class="bg-white flex flex-col items-center text-center px-4 py-12 pt-6 fadeInUp-animation rounded-t-2xl border-2"
-        role="main">
+        role="main" itemscope itemtype="http://schema.org/Reservation">
 
-        <section class="my-6">
+        <section class="my-6" aria-labelledby="main-heading">
             <div class="text-4xl font-bold mb-6 flex justify-center items-center flex-col">
-                <img src="public/agendamento.png" class="my-4 w-[160px]" alt="">
-                <h1 class="text-gray-900">Agende seu horário</h1>
+                <img src="src/public/agendamento.png" class="my-4 w-[160px]" alt="Ilustração de calendário de agendamento"
+                    loading="lazy" itemprop="image">
+                <h1 id="main-heading" class="text-gray-900" itemprop="name">
+                   Agende seu horário
+                </h1>
             </div>
-            <p class="text-gray-700 text-lg mb-8 font-semibold">
-                Fique tranquilo(a)!, assim que terminar de agendar, entraremos em contato com você via Whatsapp para
-                confirmar seu agendamento
+            <p class="text-gray-700 text-lg mb-8 font-semibold" itemprop="description">
+                Agende sua sessão de massoterapia com segurança e praticidade. Assim que você agendar por aqui, vamos confirmar seu atendimento via WhatsApp!
             </p>
         </section>
 
-        <section class="text-center my-6">
-            <form class="p-4 text-left">
-                <label for="name" class="text-lg">Seu Nome</label>
-                <input type="text" name="name" id="name" placeholder="Seu nome completo" required
-                    class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg">
-                <label for="whatsapp" class="text-lg">Telefone <b class="text-green-600">WhatsApp</b></label>
-                <input type="text" name="whatsapp" id="whatsapp" placeholder="Seu nome completo" required
-                    class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg">
-                <label for="intentDate" class="text-lg">Selecione uma Data</label>
-                <input type="text" name="intentDate" id="intentDate" placeholder="Selecione"
-                    onfocus="(this.type = 'date')" required
-                    class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg">
-                <label for="intentHour" class="text-lg">Selecione um horário</label>
-                <input type="text" name="intentHour" id="intentHour" placeholder="Selecione"
-                    onfocus="(this.type = 'time')" required
-                    class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg">
-                <label for="service" class="text-lg">Selecione o Atendimento</label>
-                <select name="service" id="service" required
-                    class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg">
-                    <option value="">Selecione</option>
-                    <option value="Massagem Terapêutica">Massagem Terapêutica</option>
-                    <option value="Drenagem Linfática">Drenagem Linfática</option>
-                    <option value="Massagem e Drenagem">Massagem e Drenagem</option>
-                </select>
-                <label for="name" class="text-lg">Cupom de Desconto</label>
-                <input type="text" name="name" id="name" placeholder="Insira seu cupom aqui" required
-                    class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg">
+        <section class="text-center my-6" aria-labelledby="form-heading">
+            <h2 id="form-heading" class="sr-only">Formulário de Agendamento</h2>
+            <form class="p-4 text-left" action="/agendar" method="POST" itemscope
+                itemtype="http://schema.org/BookAction">
+
+                <div class="form-group" itemprop="object" itemscope itemtype="http://schema.org/Service">
+                    <label for="name" class="text-lg" itemprop="name">Nome Completo</label>
+                    <input type="text" name="name" id="name" placeholder="Digite seu nome completo" required
+                        class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg" itemprop="customer">
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp" class="text-lg">WhatsApp</label>
+                    <input type="tel" name="whatsapp" id="whatsapp" placeholder="(11) 99999-9999"
+                        pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" required
+                        class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg" itemprop="telephone">
+                </div>
+
+                <div class="form-group" itemscope itemtype="http://schema.org/ScheduleAction">
+                    <label for="intentDate" class="text-lg">Data de Preferência</label>
+                    <input type="date" name="intentDate" id="intentDate" required
+                        class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg" itemprop="scheduledTime">
+                </div>
+
+                <div class="form-group">
+                    <label for="intentHour" class="text-lg">Horário de Preferência</label>
+                    <input type="time" name="intentHour" id="intentHour" min="09:00" max="19:00" required
+                        class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg">
+                </div>
+
+                <div class="form-group">
+                    <label for="service" class="text-lg">Tipo de Atendimento</label>
+                    <select name="service" id="service" required
+                        class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg" itemprop="eligibleServiceType">
+                        <option value="">Selecione o serviço</option>
+                        <option value="Massagem Terapêutica" itemscope itemtype="http://schema.org/Service">
+                            <span itemprop="serviceType">Massagem Terapêutica</span>
+                        </option>
+                        <option value="Drenagem Linfática" itemscope itemtype="http://schema.org/Service">
+                            <span itemprop="serviceType">Drenagem Linfática</span>
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="coupon" class="text-lg">Cupom de Desconto (opcional)</label>
+                    <input type="text" name="coupon" id="coupon" placeholder="Ex: DANY15"
+                        class="border w-full p-2 rounded-md shadow-sm my-1 mb-4 text-lg" itemprop="discountCode">
+                </div>
+
                 <div class="flex justify-center items-center mt-4 flex-col">
-                    <input type="submit" value="Agendar Minha Sessão"
-                        class="inline-block w-full bg-[#16a34a] text-white text-md font-semibold rounded-md px-6 py-3 shadow transition-colors cursor-pointer">
-                    <a class="inline-block w-full border border-[#16a34a] text-md font-semibold rounded-md px-6 py-3 shadow transition-colors cursor-pointer mt-4 text-center"
-                        href="index.html">
-                        Voltar
+                    <button type="submit"
+                        class="inline-block w-full bg-[#16a34a] text-white text-md font-semibold rounded-md px-6 py-3 shadow transition-colors cursor-pointer hover:bg-[#13803d]"
+                        aria-label="Confirmar Agendamento" itemprop="potentialAction">
+                        Confirmar Agendamento
+                    </button>
+                    <a class="inline-block w-full border border-[#16a34a] text-md font-semibold rounded-md px-6 py-3 shadow transition-colors cursor-pointer mt-4 text-center hover:bg-green-50"
+                        href="index.html" aria-label="Voltar para página inicial">
+                        Voltar para Página Inicial
                     </a>
                 </div>
             </form>
         </section>
-
-
     </main>
 
     <aside class="fixed bottom-6 right-4" aria-label="Atendimento via WhatsApp">
-        <a href="#" aria-label="Fale conosco pelo WhatsApp">
-            <img src="src/public/whatsapp.webp" class="w-[70px]" alt="Botão do WhatsApp" loading="lazy">
+        <a href="https://wa.me/5511999999999" aria-label="Fale conosco pelo WhatsApp" itemprop="contactPoint" itemscope
+            itemtype="http://schema.org/ContactPoint">
+            <meta itemprop="contactType" content="customer service">
+            <meta itemprop="telephone" content="+5511999999999">
+            <img src="src/public/whatsapp.webp" class="w-[70px]" alt="Contato via WhatsApp para agendamento"
+                loading="lazy">
         </a>
     </aside>
 
-    <footer class="text-center py-6 bg-gray-100 text-gray-600">
+    <footer class="text-center py-6 bg-gray-100 text-gray-600" role="contentinfo">
         <p>&copy; 2024 Dany Massoterapia. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="send-schedule.js"></script>
 
 </html>
