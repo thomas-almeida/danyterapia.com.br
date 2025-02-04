@@ -32,7 +32,7 @@ body {
   }
 }
 
-.fadeInUp-animation {
+. {
   animation: 1.2s fadeInUp;
 }
 
